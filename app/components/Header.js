@@ -19,7 +19,7 @@ const Header = () => {
               Home
             </Link>
             <Link
-              href=",/about"
+              href="/about"
               className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-orange mr-4"
             >
               About
