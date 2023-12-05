@@ -37,6 +37,14 @@ const Header = () => {
               Contact
             </Link>
           </div>
+          <div>
+            <Link
+              href="/login"
+              className="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-orange"
+            >
+              Login
+            </Link>
+          </div>
         </div>
       </nav>
     </header>
