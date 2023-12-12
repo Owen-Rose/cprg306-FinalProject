@@ -1,11 +1,11 @@
 "use client";
-import { supabase } from "../../..supabaseClient";
+import { supabase } from "../../../config/supabaseClient";
 import { useEffect, useState } from "react";
 
-export default function Dashbaord() {
+export default function Dashboard() {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const { data: authListener } = supabase.auth.onAthStateChange(async () =>
       checkUser()
     );
@@ -15,7 +15,7 @@ export default function Dashbaord() {
     return () => {
       authListener?.unsubscribe();
     };
-  }, []);
+  }, []); */
 
   return (
     <div>

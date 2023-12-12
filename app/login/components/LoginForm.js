@@ -76,12 +76,14 @@ const LoginForm = () => {
         />
       </div>
 
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-      >
-        Login
-      </button>
+      <Link href="/dashboard">
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+        >
+          Login
+        </button>
+      </Link>
 
       <div className="mt-4 text-center">
         <p className="text-gray-500 text-sm">

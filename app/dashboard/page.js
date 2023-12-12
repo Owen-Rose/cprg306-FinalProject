@@ -1,8 +1,12 @@
 import React from "react";
-import Dashbaord from "./components/Dashbaord";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
-  return <Dashbaord />;
+  return (
+    <div>
+      <Dashboard />;
+    </div>
+  );
 };
 
 export default App;
