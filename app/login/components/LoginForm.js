@@ -1,7 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import supabase from "../../../config/supabaseClient";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -15,9 +18,26 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
+
+    try {
+      const { user, error } = await supabase.auth.signIn({
+        email,
+        password,
+      });
+
+      if (error) {
+        console.error("Login error:", error.message);
+        // Handle error (display error message, etc.)
+      } else {
+        console.log("User:", user);
+        // Redirect to dashboard or another page
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      console.error("Supabase error:", error.message);
+    }
   };
 
   return (
@@ -35,7 +55,7 @@ const LoginForm = () => {
           value={email}
           onChange={handleEmailChange}
           required
-          className="w-full px-3 py-2 placeholder-gray-300 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+          className="text-black w-full px-3 py-2 placeholder-gray-300 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
 
@@ -52,7 +72,7 @@ const LoginForm = () => {
           value={password}
           onChange={handlePasswordChange}
           required
-          className="w-full px-3 py-2 placeholder-gray-300 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+          className="text-black w-full px-3 py-2 placeholder-gray-300 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
         />
       </div>
 
