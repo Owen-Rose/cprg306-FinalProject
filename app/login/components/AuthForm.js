@@ -10,11 +10,17 @@ export default function AuthForm() {
   );
 
   return (
-    <Auth
-      supabaseClient={supabase}
-      view="sign_in"
-      theme="dark"
-      providers={["github"]}
-    />
+    <div className="bg-beige min-h-screen flex items-center justify-center">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-md text-black">
+        <Auth
+          supabaseClient={supabase}
+          view="sign_in"
+          theme={{
+            primaryColor: "#FFA500", // Orange color
+          }}
+          providers={["github"]}
+        />
+      </div>
+    </div>
   );
 }
